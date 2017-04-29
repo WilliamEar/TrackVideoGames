@@ -6,7 +6,7 @@ import models
 
 admin.site.register(models.VideoGame)
 admin.site.register(models.Console)
-admin.site.register(models.Platform)
 admin.site.register(models.Character)
 admin.site.register(models.Franchise)
-admin.site.register(models.Appear)
+admin.site.register(models.Company)
+admin.site.register(models.GameEngine)

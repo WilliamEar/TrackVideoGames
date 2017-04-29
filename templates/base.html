@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- Based on https://themeforest.net/item/inspire-bootstrap-4-admin-template/19787518?s_rank=1 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+         <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+        <title>Track Your Video Games</title>
+    </head>
+    <body>
+        <header>
+            <ul class="account_options">
+                <li>Login</li>
+                <li>Profile</li>
+            </ul>
+        </header>
+        <div class="row">
+            <aside class="col-sm-2">
+                 <ul>
+                    <li>Homapage<a href=""></a></li>
+                    <li>Homapage<a href=""></a></li>
+                    <li>Homapage<a href=""></a></li>
+                    <li>Homapage<a href=""></a></li>
+                </ul>
+            </aside>
+            <div class="col-sm-9 text-center container jumbotron">
+                {% block content %}
+                <p>Welcome to track your video games.</p>
+                {% endblock %}
+            </div>
+        </div>
+
+    </body>
+</html>
