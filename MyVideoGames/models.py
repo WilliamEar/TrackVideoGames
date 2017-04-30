@@ -56,6 +56,7 @@ class VideoGame(models.Model):
     created_by = models.ForeignKey(Company)
     game_engine = models.ForeignKey(GameEngine)
     themes = models.ForeignKey(Theme)
+    cover = models.ImageField(upload_to="MyVideoGames", blank=True, null=True)
 
     def __unicode__(self):
         return self.name
@@ -112,4 +113,14 @@ class Favorite(Review):
 
     class Meta:
         unique_together = ("video_game", "user")
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User)
+    birthday = models.DateField()
+    avatar = models.ImageField(upload_to="avatar", blank=True, null=True)
+    favorite_game = models.ForeignKey(VideoGame)
+
+    def __unicode__(self):
+        return "Profile of " + str(self.user)
 

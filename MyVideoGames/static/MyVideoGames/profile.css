@@ -1,0 +1,9 @@
+.user-info {
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.profile-names {
+    padding-bottom: 40px;
+    border-bottom: solid darkgray;
+}

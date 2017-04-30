@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{%  block content %}
+<div class="row">
+    <div class="container">
+        <div class="profile-names">
+            <img src="{{ user.profile.avatar.url }}" class="img-responsive" alt="Profile avatar">
+            <h1 class="text-capitalize"> User: {{ user.username }} </h1> <br>
+            <h2><small> {{ user.get_full_name }}</small></h2>
+        </div>
+        <div class="table-responsive">
+            <table class="user-info table table-hover table-striped">
+                <th class="text-center" colspan="2"><h2>User information</h2></th>
+                <tr>
+                    <td>Email</td>
+                    <td>{{ user.email }}</td>
+                </tr>
+                <tr>
+                    <td>Birthday</td>
+                    <td>
+                        {% if user.profile.birthay is None %}
+                            {{ user.profile.birthday }}
+                        {% else %}
+                            <a href="#">Add your birthday</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:middle">Favorite Game</td>
+                    <td>
+                        {% if user.profile.favorite_game %}
+                            {{ user.profile.favorite_game.name }} <br>
+                            <img src="{{ user.profile.favorite_game.cover.url }}" height="50%">
+                        {% else %}
+                            <a href="#">Add your Favorite Game</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<a href="{% url 'logout' %}?next={{request.path}}">logout</a>
+{% endblock %}

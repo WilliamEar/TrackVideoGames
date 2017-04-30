@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!-- Based on https://themeforest.net/item/inspire-bootstrap-4-admin-template/19787518?s_rank=1 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+         <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'MyVideoGames/profile.css' %}"/>
+        <title>Track Your Video Games</title>
+    </head>
+    <body>
+        <header>
+            {% if user.username %}
+                <p>
+                    User: <a href="{% url 'profile' %}?next={{request.path}}">{{ user.username }}</a> | <a href="{% url 'logout' %}?next={{request.path}}">logout</a>
+                </p>
+            {% else %}
+                <p>
+                    <a href="{% url 'login' %}?next={{request.path}}">login</a>
+                    <a href="{% url 'register' %}?next={{request.path}}">register</a>
+                </p>
+            {% endif %}
+        </header>
+        <div class="row">
+            <aside class="col-sm-2">
+                 <ul>
+                    <li><a href="{% url 'homepage' %}">Homapage</a></li>
+                    <li><a href="{% url 'homepage' %}">Homapage</a></li>
+                    <li><a href="{% url 'homepage' %}">Homapage</a></li>
+                    <li><a href="{% url 'homepage' %}">Homapage</a></li>
+                </ul>
+            </aside>
+            <div class="col-sm-9 text-center container jumbotron">
+                {% block content %}
+                <p>Welcome {{ username }} to track your video games.</p>
+                {% endblock %}
+            </div>
+        </div>
+
+    </body>
+</html>

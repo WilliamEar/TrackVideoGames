@@ -10,3 +10,10 @@ admin.site.register(models.Character)
 admin.site.register(models.Franchise)
 admin.site.register(models.Company)
 admin.site.register(models.GameEngine)
+admin.site.register(models.Theme)
+admin.site.register(models.CharacterNew)
+admin.site.register(models.VideoGameNew)
+admin.site.register(models.CompanyNew)
+admin.site.register(models.Profile)
+
+
