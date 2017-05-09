@@ -7,37 +7,54 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
          <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'MyVideoGames/profile.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'MyVideoGames/base.css' %}"/>
         <title>Track Your Video Games</title>
     </head>
     <body>
-        <header>
-            {% if user.username %}
-                <p>
-                    User: <a href="{% url 'profile' %}?next={{request.path}}">{{ user.username }}</a> | <a href="{% url 'logout' %}?next={{request.path}}">logout</a>
-                </p>
-            {% else %}
-                <p>
-                    <a href="{% url 'login' %}?next={{request.path}}">login</a>
-                    <a href="{% url 'register' %}?next={{request.path}}">register</a>
-                </p>
-            {% endif %}
-        </header>
-        <div class="row">
-            <aside class="col-sm-2">
-                 <ul>
-                    <li><a href="{% url 'homepage' %}">Homapage</a></li>
-                    <li><a href="{% url 'homepage' %}">Homapage</a></li>
-                    <li><a href="{% url 'homepage' %}">Homapage</a></li>
-                    <li><a href="{% url 'homepage' %}">Homapage</a></li>
-                </ul>
-            </aside>
-            <div class="col-sm-9 text-center container jumbotron">
-                {% block content %}
-                <p>Welcome {{ username }} to track your video games.</p>
-                {% endblock %}
-            </div>
+        <div class="Navigation-bar">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                      <a class="navbar-brand" href="#">Track Your VGs</a>
+                    </div>
+
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="#">Page 1</a></li>
+                        <li><a href="#">Page 2</a></li>
+                        <li><a href="#">Page 3</a></li>
+                    </ul>
+                    <div class="navbar-right">
+                        {% if user.username %}
+                            <button class=" text-capitalize btn navbar-btn">{{ user.username }}</button>
+                        <a href="{% url 'profile' %}">
+                            <img src="/media/Users/profle.png" alt="Profile" height="35px">
+                        </a>
+                        <a href="{% url 'logout' %}">
+                            <img src="/media/Users/logout.png" alt="Profile" height="35px">
+                        </a>
+                    {% else %}
+                        <a href="{% url 'login' %}">
+                            <img class="btn navbar-btn" src="/media/Users/login.png" alt="Profile" height="35px">
+                        </a>
+                        <a href="{% url 'register' %}">
+                            <button class="btn navbar-btn">Sign Up</button>
+                        </a>
+                    {% endif %}
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="text-center container" style="margin-top:60px">
+            {% block content %}
+            <p>Welcome {{ username }} to track your video games.</p>
+            {% endblock %}
+        </div>
         </div>
 
     </body>

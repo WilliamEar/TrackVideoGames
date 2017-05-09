@@ -7,7 +7,7 @@ import pycountry
 # Create your models here.
 
 
-class Theme(models.Model):
+class Genre(models.Model):
     name = models.CharField(max_length=30)
 
     def __unicode__(self):
@@ -55,7 +55,7 @@ class VideoGame(models.Model):
     platform = models.ManyToManyField(Console)
     created_by = models.ForeignKey(Company)
     game_engine = models.ForeignKey(GameEngine)
-    themes = models.ForeignKey(Theme)
+    genre = models.ForeignKey(Genre)
     cover = models.ImageField(upload_to="MyVideoGames", blank=True, null=True)
 
     def __unicode__(self):
